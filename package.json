@@ -1,0 +1,11 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "description": "Solving leetcode tasks and test them",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "f2mars",
+  "license": "ISC"
+}
