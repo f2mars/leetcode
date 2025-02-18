@@ -3,12 +3,21 @@
   "version": "1.0.0",
   "description": "Solving leetcode tasks and test them",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "build": "tsc",
     "test": "jest"
   },
   "author": "f2mars",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.3"
   }
 }
