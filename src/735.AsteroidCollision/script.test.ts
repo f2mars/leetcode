@@ -16,6 +16,6 @@ test("asteroidCollision([10,2,-2, -10]) should return []", () => {
   expect(asteroidCollision([10,2,-2, -10])).toStrictEqual([]);
 });
 
-test("asteroidCollision([-2,-1,1,2]) should return [-2,-1,1,2]", async () => {
+test("asteroidCollision([-2,-1,1,2]) should return [-2,-1,1,2]", () => {
   expect(asteroidCollision([-2,-1,1,2])).toStrictEqual([-2,-1,1,2]);
-}, 1000);
+});
