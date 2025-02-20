@@ -12,7 +12,7 @@ function decodeString(s: string): string {
             if (isNum(char)) {
                 decodeNumAsStr += char;
             } else if (char === "[") {
-                const decoded = _decode(str.slice(i + 1), Math.max(1, Number(decodeNumAsStr)));
+                const decoded = _decode(str.slice(i + 1), Math.max(1, Number(decodeNumAsStr))); // in case of decodeNumAsStr === "" need to repeat 1 time not 0
                 res += decoded.str;
                 i += decoded.shift;
                 decodeNumAsStr = "";
