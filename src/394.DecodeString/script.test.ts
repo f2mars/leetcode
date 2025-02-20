@@ -1,5 +1,17 @@
 import { decodeString } from './script.js';
 
+test('decodeString("a") should return "a"', () => {
+  expect(decodeString('a')).toBe('a');
+});
+
+test('decodeString("3[a]b") should return "aaab"', () => {
+  expect(decodeString('3[a]b')).toBe('aaab');
+});
+
+test('decodeString("b10[a]") should return "baaaaaaaaaa"', () => {
+  expect(decodeString('b10[a]')).toBe('baaaaaaaaaa');
+});
+
 test('decodeString("3[a]2[bc]") should return "aaabcbc"', () => {
   expect(decodeString('3[a]2[bc]')).toBe('aaabcbc');
 });
