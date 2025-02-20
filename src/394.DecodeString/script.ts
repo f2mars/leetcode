@@ -1,37 +1,45 @@
 function decodeString(s: string): string {
     const numChars = new Set(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
     const isNum = (char: string) => numChars.has(char); 
-    
-    function unwrap(str: string, repeats: number): [string, number] {
+
+    const _decode = (str: string, repeats: number): { str: string, shift: number } => {
         let res = "";
-        let decodeNum = "";
+        let decodeNumAsStr = "";
         
         for (let i = 0; i < str.length; i++) {
             const char = str[i];
 
             if (isNum(char)) {
-                decodeNum += char;
+                decodeNumAsStr += char;
             } else if (char === "[") {
-                const unwrapped = unwrap(str.slice(i + 1), Number(decodeNum));
-                decodeNum = "";
-                res += unwrapped[0];
-                i += unwrapped[1];
+                const decoded = _decode(str.slice(i + 1), Math.max(1, Number(decodeNumAsStr)));
+                res += decoded.str;
+                i += decoded.shift;
+                decodeNumAsStr = "";
             } else if (char === "]") {
-                return [res.repeat(repeats), i + 1];
+                return { 
+                    str: res.repeat(repeats), 
+                    shift: i + 1 
+                };
             } else {
                 res += char;
             }
         }
 
-        return [res.repeat(repeats), str.length];
+        return {
+            str: res.repeat(repeats),   
+            shift: str.length
+        };
     }
 
-    return unwrap(s, 1)[0];
+    return _decode(s, 1).str;
 };
 
 export { decodeString };
 
 /*
+Test recurion thoughts
+
 "a2[b2[c]d]e"
 i = 0 // "a <--
 
