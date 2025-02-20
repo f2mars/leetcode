@@ -23,3 +23,7 @@ test('decodeString("3[a2[c]]") should return "accaccacc"', () => {
 test('decodeString("2[abc]3[cd]ef") should return "abcabccdcdcdef"', () => {
   expect(decodeString('2[abc]3[cd]ef')).toBe('abcabccdcdcdef');
 });
+
+test('decodeString("a2[b2[c]d]e") should return "abccdbccde"', () => {
+  expect(decodeString('a2[b2[c]d]e')).toBe('abccdbccde');
+});
