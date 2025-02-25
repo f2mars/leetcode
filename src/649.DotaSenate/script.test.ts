@@ -20,6 +20,10 @@ test(`predictPartyVictory("RDD") should return "Dire"`, () => {
     expect(predictPartyVictory("RDD")).toBe("Dire");
 });
 
+test(`predictPartyVictory("DDRRR") should return "Dire"`, () => {
+    expect(predictPartyVictory("DDRRR")).toBe("Dire");
+});
+
 test(`predictPartyVictory("RDDRRD") should return "Radiant"`, () => {
     expect(predictPartyVictory("RDDRRD")).toBe("Radiant");
 });
