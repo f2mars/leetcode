@@ -24,8 +24,8 @@ test(`predictPartyVictory("RDDRRD") should return "Radiant"`, () => {
     expect(predictPartyVictory("RDDRRD")).toBe("Radiant");
 });
 
-test(`predictPartyVictory("RDDRRDD") should return "Radiant"`, () => {
-    expect(predictPartyVictory("RDDRRDD")).toBe("Radiant");
+test(`predictPartyVictory("RDDRRDD") should return "Dire"`, () => {
+    expect(predictPartyVictory("RDDRRDD")).toBe("Dire");
 });
 
 test(`predictPartyVictory("RDDRRDD") should return "Dire"`, () => {
