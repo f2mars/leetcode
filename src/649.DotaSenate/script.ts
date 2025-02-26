@@ -22,11 +22,11 @@ class NumsQueue {
             next: null
         }
 
-        if (this.tail !== null) {
+        if (this.tail === null) {
+            this.tail = newElem;
+        } else {
             this.tail.next = newElem;
             this.tail = this.tail.next;
-        } else {
-            this.tail = newElem;
         }
 
         if (this.head === null) this.head = newElem;
