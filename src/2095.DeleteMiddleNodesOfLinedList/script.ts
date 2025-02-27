@@ -11,6 +11,30 @@ class ListNode {
 // Intuitive
 // Complexity: Time O(N), Space O(1)
 function deleteMiddle(head: ListNode): ListNode | null {
+    if (head.next === null) return null;
+
+    let current: ListNode | null = head;
+    let preTail: ListNode | null = null;
+    let postHead: ListNode | null = head.next;
+
+    let i = 1;
+    while (current !== null) {
+        if (i % 2 === 0) {
+            if (preTail === null) {
+                preTail = head;
+            } else {
+                preTail = preTail.next;
+            }
+
+            if (postHead !== null) postHead = postHead.next;
+        }
+        current = current.next;
+        i++;
+    }
+
+    if (preTail === null) return postHead;
+    
+    preTail.next = postHead;
     return head;
 };
 
