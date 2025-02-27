@@ -8,7 +8,24 @@ class ListNode {
     }
 }
 
-// Intuitive
+// Two Pointers
+// Complexity: Time O(N), Space O(1)
+function deleteMiddle(head: ListNode): ListNode | null {
+    if (head.next === null) return null;
+
+    let fastPointer = head.next.next;
+    let slowPointer = head;
+
+    while (slowPointer.next && fastPointer?.next) {
+        fastPointer = fastPointer.next.next;
+        slowPointer = slowPointer.next
+    }
+
+    slowPointer.next = slowPointer.next?.next ?? null;
+    return head;
+};
+
+/* // Intuitive
 // Complexity: Time O(N), Space O(1)
 function deleteMiddle(head: ListNode): ListNode | null {
     if (head.next === null) return null;
@@ -36,7 +53,7 @@ function deleteMiddle(head: ListNode): ListNode | null {
     
     preTail.next = postHead;
     return head;
-};
+}; */
 
 /*
 1, 2, 3, 4, 5
