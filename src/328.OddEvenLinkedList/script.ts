@@ -9,12 +9,35 @@ class ListNode {
     val: number
     next: ListNode | null
     constructor(val?: number, next?: ListNode | null) {
-        this.val = (val===undefined ? 0 : val)
-        this.next = (next===undefined ? null : next)
+        this.val = (val === undefined ? 0 : val)
+        this.next = (next === undefined ? null : next)
     }
 }
 
+// Move Even nodes to the end
+// Complexity: Time O(N), Space O(1)
 function oddEvenList(head: ListNode | null): ListNode | null {
+    if (head === null || head.next === null) return head;
+
+    let tail = head;
+    let length = 1;
+    while (tail.next !== null) {
+        tail = tail.next;
+        length++;
+    }
+
+    for (let i = 1, pointer = head; 
+        pointer.next !== null && pointer.next.next !== null && i <= length / 2; 
+        i++
+    ) {
+        tail.next = pointer.next;
+        tail = tail.next;
+
+        pointer.next = pointer.next.next;
+        pointer = pointer.next;
+    }
+
+    tail.next = null;
     return head;
 };
 
