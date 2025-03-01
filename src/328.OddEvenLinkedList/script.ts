@@ -14,9 +14,29 @@ class ListNode {
     }
 }
 
-// Move Even nodes to the end
+
+// Simplify
 // Complexity: Time O(N), Space O(1)
 function oddEvenList(head: ListNode | null): ListNode | null {
+    if (head == null) return null;
+    let oddTail = head;
+    let evenTail = head.next;
+    let even = evenTail;
+
+    while (evenTail != null && evenTail.next != null) {
+        oddTail.next = evenTail.next;
+        oddTail = oddTail.next;
+        evenTail.next = oddTail.next;
+        evenTail = evenTail.next;
+    }
+
+    oddTail.next = even;
+    return head;
+};
+
+// Move Even nodes to the end
+// Complexity: Time O(N), Space O(1)
+/* function oddEvenList(head: ListNode | null): ListNode | null {
     if (head === null || head.next === null) return head;
 
     let tail = head;
@@ -39,6 +59,6 @@ function oddEvenList(head: ListNode | null): ListNode | null {
 
     tail.next = null;
     return head;
-};
+}; */
 
 export { oddEvenList, ListNode }
