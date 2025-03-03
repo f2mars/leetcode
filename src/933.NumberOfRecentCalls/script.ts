@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/number-of-recent-calls/description/?envType=study-plan-v2&envId=leetcode-75
+// https://leetcode.com/problems/number-of-recent-calls/
 
 // Complexity: Time O(1), Space O(1)
 // Linked list
