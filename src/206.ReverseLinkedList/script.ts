@@ -5,6 +5,8 @@ Constraints:
 - -5000 <= Node.val <= 5000
 */
 
+// Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
+
 class ListNode {
     val: number
     next: ListNode | null
@@ -14,8 +16,25 @@ class ListNode {
     }
 }
 
+// Recursion
+// Comlexity: Time O(N), Space O(N)
 function reverseList(head: ListNode | null): ListNode | null {
-    return null;
+    if (head === null || head.next === null) return head;
+
+    const _reverseList = (head: ListNode): { head: ListNode, tail: ListNode } => {
+        if (head.next === null) {
+            return { head: head, tail: head }
+        }
+
+        const reversed = _reverseList(head.next);
+        head.next = null;
+        reversed.tail.next = head;
+        reversed.tail = reversed.tail.next;
+
+        return reversed;
+    }
+
+    return _reverseList(head).head;
 };
 
 export { reverseList, ListNode }
