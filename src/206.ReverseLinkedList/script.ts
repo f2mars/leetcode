@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/reverse-linked-list/description/?envType=study-plan-v2&envId=leetcode-75
+// https://leetcode.com/problems/reverse-linked-list/
 /* 
 Constraints:
 - The number of nodes in the list is the range [0, 5000].
