@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/asteroid-collision/
+
 // Time: O(N), Space: O(1)
 function asteroidCollision(asteroids: number[]): number[] {
   for (let i = 0; i < asteroids.length;) {

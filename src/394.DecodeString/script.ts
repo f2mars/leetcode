@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/decode-string/
+
 function decodeString(s: string): string {
     const numChars = new Set(["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]);
     const isNum = (char: string) => numChars.has(char); 
