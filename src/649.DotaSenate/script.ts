@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/dota2-senate/description/?envType=study-plan-v2&envId=leetcode-75
+// https://leetcode.com/problems/dota2-senate/
 
 // Two Queues
 // Complexity: Time O(N), Space O(N)

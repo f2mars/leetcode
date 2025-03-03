@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/odd-even-linked-list/description/?envType=study-plan-v2&envId=leetcode-75
+// https://leetcode.com/problems/odd-even-linked-list/
 
 // Constraints:
 // Number of nodes: [0, 10^4]
