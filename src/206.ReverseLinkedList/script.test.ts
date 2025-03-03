@@ -17,9 +17,9 @@ test("head = [1] should return [1]", () => {
 })
 
 test("head = [1,2] shoudl return [2,1]", () => {
-    expect(new ListNode(1, new ListNode(2, null))).toStrictEqual(new ListNode(2, new ListNode(1, null)))
+    expect(reverseList(new ListNode(1, new ListNode(2, null)))).toStrictEqual(new ListNode(2, new ListNode(1, null)))
 })
 
 test("head = [-5000,5000,0,4999] shoudl return [4999,0,5000,-5000]", () => {
-    expect(new ListNode(-5000, new ListNode(5000, new ListNode(0, new ListNode(4999, null))))).toStrictEqual(new ListNode(4999, new ListNode(0, new ListNode(5000, new ListNode(-5000, null)))))
+    expect(reverseList(new ListNode(-5000, new ListNode(5000, new ListNode(0, new ListNode(4999, null)))))).toStrictEqual(new ListNode(4999, new ListNode(0, new ListNode(5000, new ListNode(-5000, null)))))
 })
