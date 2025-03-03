@@ -16,9 +16,24 @@ class ListNode {
     }
 }
 
+// Itarative
+// Comlexity: Time O(N), Space O(1)
+function reverseList(head: ListNode | null): ListNode | null {
+    if (head === null || head.next === null) return head;
+
+    let reversed: ListNode | null = null;
+    let pointer: ListNode | null = head;
+    while (pointer !== null) {
+        reversed = new ListNode(pointer.val, reversed); 
+        pointer = pointer.next;
+    }
+
+    return reversed;
+};
+
 // Recursion
 // Comlexity: Time O(N), Space O(N)
-function reverseList(head: ListNode | null): ListNode | null {
+/* function reverseList(head: ListNode | null): ListNode | null {
     if (head === null || head.next === null) return head;
 
     const _reverseList = (head: ListNode): { head: ListNode, tail: ListNode } => {
@@ -35,6 +50,6 @@ function reverseList(head: ListNode | null): ListNode | null {
     }
 
     return _reverseList(head).head;
-};
+}; */
 
 export { reverseList, ListNode }
