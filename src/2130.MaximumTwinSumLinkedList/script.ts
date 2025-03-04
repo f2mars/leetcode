@@ -26,15 +26,17 @@ function pairSum(head: ListNode | null): number {
         listLength++;
     }
 
-    const sums = [];
+    const sums: number[] = [];
     let poiner = head;
     for (let i = 0; i < listLength / 2 && poiner !== null; poiner = poiner.next, i++) {
         sums.push(poiner.val);
     }
 
     let maxSum = 0;
-    for (let i = 1; poiner !== null; poiner = poiner.next, i++) {
-        maxSum = Math.max(maxSum, poiner.val + sums[sums.length - i])
+    while (poiner !== null) {
+        const sum = poiner.val + Number(sums.pop());
+        if (sum > maxSum) maxSum = sum;
+        poiner = poiner.next;
     }
 
     return maxSum;
