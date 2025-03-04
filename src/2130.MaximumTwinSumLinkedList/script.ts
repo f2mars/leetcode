@@ -18,9 +18,48 @@ class ListNode {
     }
 }
 
+// Reverse list's second half
+// Compexity: Time O(N), Space O(1)
+function pairSum(head: ListNode | null): number {
+    let fastPoint = head;
+    let slowPoint = head;
+
+    // findle the middle point
+    while (fastPoint !== null && fastPoint.next !== null && slowPoint !== null) {
+        fastPoint = fastPoint.next.next
+        slowPoint = slowPoint.next;
+    }
+
+    // reverse second half
+    let prev = null;
+    let cur = slowPoint;
+    while (cur !== null) {
+        const next = cur.next;
+
+        cur.next = prev;
+        prev = cur;
+        cur = next;
+
+        // Same in one operation, but slower: 
+        // [cur.next, prev, cur] = [prev, cur, cur.next];
+    }
+
+    // prev = reversed half head
+    let maxSum = 0;
+    while (prev !== null && head !== null) {
+        const sum = prev.val + head.val;
+        if (sum > maxSum) maxSum = sum;
+
+        prev = prev.next;
+        head = head.next;
+    }
+
+    return maxSum;
+};
+
 // Intuitive
 // Compexity: Time O(N), Space O(N)
-function pairSum(head: ListNode | null): number {
+/* function pairSum(head: ListNode | null): number {
     let listLength = 0;
     for (let pointer = head; pointer !== null; pointer = pointer.next) {
         listLength++;
@@ -40,6 +79,6 @@ function pairSum(head: ListNode | null): number {
     }
 
     return maxSum;
-};
+}; */
 
 export { pairSum, ListNode }
