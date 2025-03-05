@@ -17,8 +17,13 @@ class TreeNode {
     }
 }
 
+
+// Recursion
+// Complexity: Time O(N), Space O(N)
 function maxDepth(root: TreeNode | null): number {
-    return 0;
+    if (root === null) return 0;
+    const { left, right } = root;
+    return Math.max(maxDepth(left), maxDepth(right)) + 1;
 };
 
 export { maxDepth, TreeNode }
