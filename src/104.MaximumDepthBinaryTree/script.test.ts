@@ -20,7 +20,7 @@ null  null
 
 should return 1
 `, () => {
-    expect(maxDepth(new TreeNode(1, null, null))).toBe(1);
+    expect(maxDepth(new TreeNode(0, null, null))).toBe(1);
 })
 
 test(`
@@ -61,7 +61,8 @@ null 8      null null
 should return 4
 `, () => {
 expect(
-    maxDepth(new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7))))
+     maxDepth(new TreeNode(0, new TreeNode(-99, new TreeNode(0, null, new TreeNode(8))), new TreeNode(20, null, new TreeNode(2)))
+    )
 ).toBe(4);
 })
 
@@ -83,7 +84,8 @@ null null
 
 should return 6
 `, () => {
-expect(
-maxDepth(new TreeNode(3, new TreeNode(9), new TreeNode(20, new TreeNode(15), new TreeNode(7))))
-).toBe(6);
+    expect(
+        maxDepth(new TreeNode(0, new TreeNode(-99, new TreeNode(0, null, new TreeNode(8, new TreeNode(1, new TreeNode(-1, null, null))))), new TreeNode(20, null, new TreeNode(2, null, null)))
+       )
+   ).toBe(6);
 })
