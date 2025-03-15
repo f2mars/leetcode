@@ -1,8 +1,8 @@
 import { TreeNode, preorderTraversal } from "./script.js";
 
-test(`null should return null
+test(`null should return []
 `, () => {
-    expect(preorderTraversal(null)).toBe(null);
+    expect(preorderTraversal(null)).toStrictEqual([]);
 });
 
 test(`
