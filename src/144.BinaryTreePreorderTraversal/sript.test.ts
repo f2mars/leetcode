@@ -1,13 +1,10 @@
 import { TreeNode, preorderTraversal } from "./script.js";
 
-test(`null should return []
-`, () => {
+test("null should return []", () => {
     expect(preorderTraversal(null)).toStrictEqual([]);
 });
 
-test(`
-1 (with implicit nulls) should return [1]
-`, () => {
+test("1 (with implicit nulls) should return [1]", () => {
     expect(preorderTraversal(new TreeNode(1))).toStrictEqual([1]);
 });
 
@@ -30,7 +27,7 @@ null   2
     
 should return [1,2,3]
 `, () => {
-    expect(preorderTraversal(new TreeNode(1, null, null))).toStrictEqual([1,2,3]);
+    expect(preorderTraversal(new TreeNode(1, null, new TreeNode(2, new TreeNode(3))))).toStrictEqual([1,2,3]);
 });
 
 test(`
