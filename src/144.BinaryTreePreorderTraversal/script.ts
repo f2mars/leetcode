@@ -17,6 +17,42 @@ class TreeNode {
     }
 }
 
+// Morris traversal solution
+// Comlexity: Time O(N), Space(N)
+function preorderTraversal(root: TreeNode | null): number[] {
+    if (root === null) return [];
+
+    const nodeValues: number [] = [];
+    let parentNode: TreeNode | null = root;
+    let childNode: TreeNode;
+
+    while (parentNode !== null) {
+        if (parentNode.left === null) {
+            nodeValues.push(parentNode.val);
+            parentNode = parentNode.right;
+        } else {
+            childNode = parentNode.left;
+
+            while (childNode.right !== null && childNode.right !== parentNode) {
+                childNode = childNode.right;
+            }
+
+            if (childNode.right === null) {
+                nodeValues.push(parentNode.val);
+                childNode.right = parentNode;
+                parentNode = parentNode.left;
+            } else if (childNode.right === parentNode) {
+                childNode.right = null;
+                parentNode = parentNode.right;
+            }
+
+        }
+    }
+
+    return nodeValues;
+};
+
+/* 
 // Iterative solution
 // Comlexity: Time O(N), Space(N)
 function preorderTraversal(root: TreeNode | null): number[] {
@@ -34,6 +70,7 @@ function preorderTraversal(root: TreeNode | null): number[] {
 
     return nodeValues;
 };
+ */
 
 /* 
 // Intuitive solution
