@@ -17,11 +17,31 @@ class TreeNode {
     }
 }
 
+// Iterative solution
+// Comlexity: Time O(N), Space(N)
+function preorderTraversal(root: TreeNode | null): number[] {
+    if (root === null) return [];
+
+    const nodeValues: number [] = [];
+    const stack: TreeNode[] = [root];
+
+    while (stack.length !== 0) {
+        const currentNode: TreeNode = stack.pop()!;
+        nodeValues.push(currentNode.val);
+        if (currentNode.right !== null) stack.push(currentNode.right);
+        if (currentNode.left !== null) stack.push(currentNode.left);
+    }
+
+    return nodeValues;
+};
+
+/* 
 // Intuitive solution
 // Comlexity: Time O(N), Space(N)
 function preorderTraversal(root: TreeNode | null): number[] {
     if (root === null) return [];
     return [root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
-};
+}; 
+*/
 
 export { TreeNode, preorderTraversal }
