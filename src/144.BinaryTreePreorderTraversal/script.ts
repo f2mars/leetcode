@@ -17,8 +17,11 @@ class TreeNode {
     }
 }
 
+// Intuitive solution
+// Comlexity: Time O(N), Space(N)
 function preorderTraversal(root: TreeNode | null): number[] {
-    return [1]
+    if (root === null) return [];
+    return [root.val, ...preorderTraversal(root.left), ...preorderTraversal(root.right)]
 };
 
 export { TreeNode, preorderTraversal }
