@@ -17,8 +17,11 @@ class TreeNode {
     }
 }
 
+// Recursive
+// Complexity: Time O(N), Space O(N)
 function inorderTraversal(root: TreeNode | null): number[] {
-    return [1];
+    if (root === null) return [];
+    return [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)];
 };
 
 export { TreeNode, inorderTraversal }
