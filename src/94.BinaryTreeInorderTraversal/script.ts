@@ -16,13 +16,48 @@ class TreeNode {
         this.right = (right === undefined ? null : right)
     }
 }
- 
+
+// Morris transersal
+// Complexity: Time O(N), Space O(1)
+function inorderTraversal(root: TreeNode | null): number[] {
+    if (root === null) return [];
+
+    const nodeValues: number[] = [];
+    let parendNode: TreeNode | null = root;
+    let childNode: TreeNode;
+
+    while (parendNode !== null) {
+        if (parendNode.left === null) {
+            nodeValues.push(parendNode.val);
+            parendNode = parendNode.right;
+        } else {
+            childNode = parendNode.left;
+            while (childNode.right !== null && childNode.right !== parendNode) {
+                childNode = childNode.right;
+            }
+
+            if (childNode.right === null) {
+                childNode.right = parendNode;
+                parendNode = parendNode.left;
+            } else if (childNode.right === parendNode) {
+                childNode.right = null;
+                nodeValues.push(parendNode.val);
+                parendNode = parendNode.right;
+            }
+        }
+    }
+
+    return nodeValues;
+};
+
+/*  
 // Recursive
 // Complexity: Time O(N), Space O(N)
 function inorderTraversal(root: TreeNode | null): number[] {
     if (root === null) return [];
     return [...inorderTraversal(root.left), root.val, ...inorderTraversal(root.right)];
 };
+ */
 
 /* 
 // Stack
